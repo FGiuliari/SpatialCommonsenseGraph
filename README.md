@@ -1,7 +1,9 @@
+# [Spatial Commonsense Graph for Object Localisation in Partial Scenes](http://fgiuliari.github.io/projects/SpatialCommonsenseGraph/)
+[Project Website](http://fgiuliari.github.io/projects/SpatialCommonsenseGraph/)
 
-# Dataset preparation
+## Dataset preparation
 
-## Retrieve the necessary data from ScanNet
+### Retrieve the necessary data from ScanNet
 
 First you need to sign the necessary agreement and obtain the **download-scannet.py** script to download the ScanNet data.
 To do so follow the instruction in the original [ScanNet repository](https://github.com/ScanNet/ScanNet).
@@ -57,13 +59,13 @@ This Repo
 
 ```
 
-## Processing the data
+### Processing the data
 
 To process the data we will use [ray](https://docs.ray.io/en/latest/index.html) to handle the multiprocessing on multiple clusters. Ray can also be used on single machine. If you have troubles running it, it should be easy to convert the code to use the python standard multiprocessing library.
 
 This processing steps will take some hours to run, please be patient.
 
-### 1) Preparing the annotated ply files
+#### 1) Preparing the annotated ply files
 
 In this step we will create the scene pcd with semantic and instance information (the one provided by scannet do not directly provide the information regarding the instances)
 
@@ -72,14 +74,14 @@ python 1.created_annotated_ply.py
 ```
 
 
-### 2) Creating the point cloud for the partial scenes
+#### 2) Creating the point cloud for the partial scenes
 
 ```bash
 python 2.create_partial_pcd.py
 ```
 
 
-### 3) Create the jsons
+#### 3) Create the jsons
 
 ```bash
 python 3.create_partial_jsons
