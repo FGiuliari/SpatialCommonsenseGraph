@@ -276,6 +276,9 @@ def calc_scene_distances(list_):  # (partial_scene, complete_scene):
 
             j["relative_pos_to_masked"].append(tmp_rel)
 
+    if len(j['masked'])==0 or len(j['labels'])<3:
+        return
+
     with (out_dir / f"{complete_scene.stem}_{partial_scene.stem}.json").open("w") as f:
         json.dump(j, f)
 
